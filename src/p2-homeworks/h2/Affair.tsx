@@ -1,5 +1,6 @@
 import React from 'react'
 import {AffairType} from "./HW2";
+import s from './Affairs.module.css'
 
 type AffairPropsType = {
     // key не нужно типизировать
@@ -8,13 +9,20 @@ type AffairPropsType = {
 }
 
 function Affair(props: AffairPropsType) {
-    const deleteCallback = () => {props.deleteAffairCallback(props.affair._id)}// need to fix
+    const deleteCallback = () => {
+        props.deleteAffairCallback(props.affair._id)
+    }// need to fix
 
     return (
-        <div>
-            <div><b>{props.affair.name.toUpperCase()}</b></div>
-            <div>{`Priority of ${props.affair.name} are ${props.affair.priority}`}</div>
-            <button onClick={deleteCallback}>X</button>
+        <div className={`
+        ${s.affairItem}
+        ${props.affair.priority === 'high' ? s.high : null} 
+        ${props.affair.priority === 'middle' ? s.middle : null} 
+        ${props.affair.priority === 'low' ? s.low : null} 
+        `}>
+            <div className={s.itemName}>{props.affair.name.toUpperCase()}</div>
+            <div className={s.itemPriority}>{props.affair.priority}</div>
+            <button className={`${s.button} ${s.buttonDelete}`} onClick={deleteCallback}>X</button>
         </div>
     )
 }
