@@ -22,7 +22,7 @@ function Affair(props: AffairPropsType) {
         `}>
             <div className={s.itemName}>{props.affair.name.toUpperCase()}</div>
             <div className={s.itemPriority}>{props.affair.priority}</div>
-            <button className={`${s.button} ${s.buttonDelete}`} onClick={deleteCallback}>X</button>
+            <button className={s.buttonDelete} onClick={deleteCallback}>X</button>
         </div>
     )
 }
