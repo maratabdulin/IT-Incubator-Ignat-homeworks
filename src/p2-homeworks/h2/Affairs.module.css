@@ -91,7 +91,7 @@
 }
 
 .high:hover button {
-  background-color: #b71d1d;
+  background-color: darkred;
 }
 
 .low:hover {
@@ -100,10 +100,19 @@
   filter: drop-shadow(0 0 20px green) contrast(2) brightness(2);
 }
 
+.low:hover button {
+  color: black;
+  background-color: darkgreen;
+}
+
 .middle:hover {
   color: black;
   background-color: yellow;
   filter: drop-shadow(0 0 20px yellow) contrast(2) brightness(2);
 }
 
+.middle:hover button {
+  color: black;
+  background-color: yellow;
+}
 
