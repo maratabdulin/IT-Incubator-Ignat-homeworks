@@ -2,6 +2,7 @@ import React from 'react'
 import Affair from './Affair'
 import {AffairType, FilterType} from './HW2'
 import s from './Affairs.module.css'
+import Button from "../components/button/Button";
 
 type AffairsPropsType = { // need to fix any
     data: Array<AffairType>
@@ -10,7 +11,7 @@ type AffairsPropsType = { // need to fix any
 }
 
 function Affairs(props: AffairsPropsType) {
-    const mappedAffairs = props.data.map((a: AffairType) => (
+    const affairsList = props.data.map((a: AffairType) => (
         <Affair // should work
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a}
@@ -18,29 +19,44 @@ function Affairs(props: AffairsPropsType) {
         />
     ))
 
-    const setAll = () => {
-        props.setFilter('all')
-    } // need to fix
-    const setHigh = () => {
-        props.setFilter('high')
+    // const setAll = () => {
+    //     props.setFilter('all')
+    // } // need to fix
+    // const setHigh = () => {
+    //     props.setFilter('high')
+    // }
+    // const setMiddle = () => {
+    //     props.setFilter('middle')
+    // }
+    // const setLow = () => {
+    //     props.setFilter('low')
+    // }
+
+    const setFilter = (filterName: FilterType) => props.setFilter(filterName);
+
+    const styleHigh = {
+        backgroundColor: 'red',
+        color: 'black'
     }
-    const setMiddle = () => {
-        props.setFilter('middle')
+    const styleMiddle = {
+        backgroundColor: 'yellow',
+        color: 'black'
     }
-    const setLow = () => {
-        props.setFilter('low')
+    const styleLow = {
+        backgroundColor: 'green',
+        color: 'black'
     }
 
     return (
         <div>
             <div className={s.affairsList}>
-                {mappedAffairs}
+                {affairsList}
             </div>
             <div className={s.buttonList}>
-                <button onClick={setAll} className={s.button}>All</button>
-                <button onClick={setHigh} className={s.button}>High</button>
-                <button onClick={setMiddle} className={s.button}>Middle</button>
-                <button onClick={setLow} className={s.button}>Low</button>
+                <Button title={'All'} callback={() => setFilter('all')}/>
+                <Button title={'High'} callback={() => setFilter('high')} style={styleHigh}/>
+                <Button title={'Middle'} callback={() => setFilter('middle')} style={styleMiddle}/>
+                <Button title={'Low'} callback={() => setFilter('low')} style={styleLow}/>
             </div>
         </div>
     )

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import GreetingContainer from './GreetingContainer'
 import {v1} from "uuid";
+import s from './Greeting.module.css'
+import Title from "../components/title/Title";
 
 // types
 export type UserType = {
@@ -18,9 +20,8 @@ function HW3() {
     }
 
     return (
-        <div>
-            <hr/>
-            homeworks 3
+        <div className={s.wrapper}>
+            <Title text={'homework 3'} titleLevel={2}/>
 
             {/*should work (должно работать)*/}
             <GreetingContainer
@@ -28,10 +29,8 @@ function HW3() {
                 addUserCallback={addUserCallback}
             />
 
-            <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeGreeting/>*/}
-            <hr/>
         </div>
     )
 }

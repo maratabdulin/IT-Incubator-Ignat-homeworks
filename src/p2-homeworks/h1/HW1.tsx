@@ -1,5 +1,7 @@
 import React from 'react'
 import Message from "./Message";
+import s from "./Message.module.css";
+import Title from "../components/title/Title";
 
 const messageData = {
     avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
@@ -10,9 +12,8 @@ const messageData = {
 
 function HW1() {
     return (
-        <div>
-            <hr/>
-            homeworks 1
+        <div className={s.wrapper}>
+            <Title text={'homework 1'} titleLevel={2}/>
 
             {/*should work (должно работать)*/}
 
@@ -23,10 +24,8 @@ function HW1() {
                 time={messageData.time}
             />
 
-            <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeMessage/>*/}
-            <hr/>
         </div>
     )
 }

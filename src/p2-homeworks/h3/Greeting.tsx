@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from 'react'
 import s from './Greeting.module.css'
+import Button from "../components/button/Button";
 
 type GreetingPropsType = {
     name: string // need to fix any
@@ -15,12 +16,16 @@ const Greeting: React.FC<GreetingPropsType> = (
 ) => {
     const inputClass = error ? s.error : s.noError  // need to fix with (?:)
 
+    const style = {
+        borderRadius: '0 5px 5px 0',
+    }
+
     return (
-        <div>
-            <input value={name} onChange={setNameCallback} className={inputClass}/>
-            <span>{error}</span>
-            <button onClick={()=>addUser(name)}>add</button>
-            <span>{totalUsers}</span>
+        <div className={s.greeting}>
+            <div className={s.counter}>{totalUsers}</div>
+            <input value={name} onChange={setNameCallback} className={`${s.input} ${inputClass}`}/>
+            <Button title={'ADD'} callback={()=>addUser(name) } style={style}/>
+            <span className={s.errorMessage}>{error}</span>
         </div>
     )
 }

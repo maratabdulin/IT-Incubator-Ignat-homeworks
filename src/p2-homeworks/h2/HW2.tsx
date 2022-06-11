@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Affairs from './Affairs'
 import s from './Affairs.module.css'
+import Title from "../components/title/Title";
 
 // types
 export type AffairPriorityType = 'high' | 'low' | 'middle' // need to fix any
@@ -40,8 +41,7 @@ function HW2() {
 
     return (
         <div className={s.wrapper}>
-            <hr/>
-            <h1 className={s.title}>HOMEWORKS 2</h1>
+            <Title text={'homework 2'} titleLevel={2}/>
 
             {/*should work (должно работать)*/}
             <Affairs
@@ -50,10 +50,8 @@ function HW2() {
                 deleteAffairCallback={deleteAffairCallback}
             />
 
-            <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeAffairs/>*/}
-            <hr/>
         </div>
     )
 }

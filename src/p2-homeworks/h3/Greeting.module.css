@@ -1,11 +1,55 @@
-.someClass {
+.wrapper {
+  margin: 0 auto;
+}
 
+.greeting {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto 50px auto;
+  padding-top: 30px;
+  background-color: transparent;
+}
+
+.counter {
+  padding: 10px 30px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff0099;
+  border: 2px solid #ffffff;
+  border-radius: 5px 0 0 5px;
+  background-color: white;
+  transition: .5s;
+  filter: drop-shadow(0 0 15px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
+}
+
+.input {
+  box-sizing: border-box;
+  min-width: 300px;
+  padding: 10px 10px 10px 20px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  color: white;
+  outline: none;
+  background-color: black;
 }
 
 .noError {
-    border: 1px solid blue;
+  border: 2px black solid;
 }
 
 .error {
-    border: 1px solid red;
+  border: 2px solid red;
+  outline: solid 3px red;
+  outline-offset: -5px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  color: red;
+  transform: translateX(-50%);
 }

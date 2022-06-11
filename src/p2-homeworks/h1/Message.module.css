@@ -1,18 +1,24 @@
+.wrapper {
+  padding-top: 30px;
+}
+
 .message {
   display: flex;
   align-items: end;
-  gap: 10px;
+  gap: 20px;
   max-width: fit-content;
-  padding: 10px;
+  margin: 0 auto;
+  padding-top: 30px;
   font-size: 20px;
   line-height: 25px;
-  background-color: #9aef35;
 }
 
 .image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 20px #ff0099;
 }
 
 .bubble {
@@ -23,7 +29,9 @@
   flex-direction: column;
   padding: 20px 80px 20px 20px;
   border-radius: 10px;
-  background-color: #04260a;
+  background-color: #000000;
+  transition: .5s;
+  filter: drop-shadow(0 0 20px #ff0099) contrast(2) brightness(2);
 }
 
 .bubble:after {
@@ -33,20 +41,22 @@
   left: -20px;
   width: 36px;
   height: 19px;
-  background: radial-gradient(circle at top left, transparent 50%, #04260a 50%);
+  background: radial-gradient(circle at top left, transparent 50%, #000000 50%);
   content: "";
+  transition: .5s;
+  filter: drop-shadow(0 0 20px #ff0099) contrast(2) brightness(2);
 }
 
 .text {
   z-index: 2;
   margin: 0;
-  color: #b0efa5;
+  color: #ff0099;
 }
 
 .name {
   z-index: 2;
   margin: 0;
-  color: #b293fc;
+  color: #ffffff;
 }
 
 .time {
@@ -54,5 +64,5 @@
   right: 10px;
   bottom: 5px;
   margin: 0;
-  color: #056e1d;
+  color: #ff0099;
 }

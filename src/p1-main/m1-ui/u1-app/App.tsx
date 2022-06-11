@@ -3,11 +3,12 @@ import s from './App.module.css'
 import HW1 from '../../../p2-homeworks/h1/HW1'
 import HW2 from "../../../p2-homeworks/h2/HW2";
 import HW3 from "../../../p2-homeworks/h3/HW3";
+import Title from "../../../p2-homeworks/components/title/Title";
 
 function App() {
     return (
         <div className={s.App}>
-            <div>react homeworks:</div>
+            <Title text={'REACT HOMEWORKS'} titleLevel={1}/>
             <HW1/>
             <HW2/>
             <HW3/>

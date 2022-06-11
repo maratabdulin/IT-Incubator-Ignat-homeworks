@@ -1,58 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Vibur&display=swap");
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  padding: 20px;
-  background: black center / cover no-repeat url("https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80");
-}
-
-.title {
-  font-family: "Vibur", sans-serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 1;
-  color: #ffffff;
-  text-shadow: 0 0 2px #ffffff,
-  0 0 5px #ffffff,
-  0 0 15px #ff0099,
-  0 0 28px #ff0099,
-  0 0 32px #ff0099,
-  0 0 36px #ff0099,
-  0 0 40px #ff0099;
-  animation: pulsate 0.11s ease-in-out infinite alternate;
-  text-align: center;
-}
-
-.button {
-  padding: 10px 30px;
-  font-family: "Vibur", sans-serif;
-  font-size: 20px;
-  color: #ff0099;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  transition: .5s;
-  filter: drop-shadow(0 0 15px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
-}
-
-.button:hover {
-  color: white;
-  background-color: #ff0099;
-  filter: drop-shadow(0 0 20px #ff0099) contrast(2) brightness(2);
+  padding: 30px 0;
 }
 
 .affairsList {
   display: flex;
   gap: 15px;
   flex-direction: column;
-  margin-bottom: 30px;
+  width: 50%;
+  margin: 30px auto;
   padding: 0 30px;
 }
 
 .buttonList {
   display: flex;
   justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
   padding: 0 30px;
 }
 
@@ -61,10 +26,10 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
   padding: 10px 10px 10px 20px;
-  font-family: "Vibur", sans-serif;
   font-size: 20px;
+  line-height: 30px;
   color: white;
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: black;
 }
 
@@ -73,7 +38,7 @@
   width: 30px;
   height: 30px;
   padding: 0;
-  font-family: "Vibur", sans-serif;
+  font-family: 'Fredoka One', cursive;
   font-size: 20px;
   color: black;
   border-radius: 50%;
@@ -85,34 +50,23 @@
 }
 
 .high:hover {
+  font-weight: 700;
   color: black;
   background-color: red;
   filter: drop-shadow(0 0 20px red) contrast(2) brightness(2);
 }
 
-.high:hover button {
-  background-color: darkred;
-}
-
 .low:hover {
+  font-weight: 700;
   color: black;
   background-color: green;
   filter: drop-shadow(0 0 20px green) contrast(2) brightness(2);
 }
 
-.low:hover button {
-  color: black;
-  background-color: darkgreen;
-}
-
 .middle:hover {
+  font-weight: 700;
   color: black;
   background-color: yellow;
   filter: drop-shadow(0 0 20px yellow) contrast(2) brightness(2);
-}
-
-.middle:hover button {
-  color: black;
-  background-color: yellow;
 }
 
