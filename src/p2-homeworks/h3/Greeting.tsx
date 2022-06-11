@@ -18,6 +18,7 @@ const Greeting: React.FC<GreetingPropsType> = (
 
     const style = {
         borderRadius: '0 5px 5px 0',
+
     }
 
     return (
