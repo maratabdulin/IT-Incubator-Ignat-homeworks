@@ -22,7 +22,6 @@ function Affairs(props: AffairsPropsType) {
 
     const setFilter = (filterName: FilterType) => props.setFilter(filterName);
 
-    console.log(props.filter)
     return (
         <div>
             <div className={s.affairsList}>

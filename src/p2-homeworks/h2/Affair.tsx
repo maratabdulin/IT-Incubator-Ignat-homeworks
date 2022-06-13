@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {CSSProperties, useState} from 'react'
 import {AffairType} from "./HW2";
 import s from './Affairs.module.css'
 
@@ -9,9 +9,17 @@ type AffairPropsType = {
 }
 
 function Affair(props: AffairPropsType) {
+
+    const [style, setStyle] = useState<CSSProperties | undefined>(undefined);
+
     const deleteCallback = () => {
-        props.deleteAffairCallback(props.affair._id)
+        props.deleteAffairCallback(props.affair._id);
     }// need to fix
+
+    const buttonDeleteOverHandler =
+        () => setStyle({color: 'white', backgroundColor: 'black'});
+    const buttonDeleteLeaveHandler =
+        () => setStyle({color: 'black', backgroundColor: 'white'});
 
     return (
         <div className={`
@@ -22,7 +30,12 @@ function Affair(props: AffairPropsType) {
         `}>
             <div className={s.itemName}>{props.affair.name.toUpperCase()}</div>
             <div className={s.itemPriority}>{props.affair.priority}</div>
-            <button className={s.buttonDelete} onClick={deleteCallback}>X</button>
+            <button className={s.buttonDelete}
+                    onClick={deleteCallback}
+                    onMouseOver={buttonDeleteOverHandler}
+                    onMouseLeave={buttonDeleteLeaveHandler}
+                    style={style}
+            >X</button>
         </div>
     )
 }
