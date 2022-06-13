@@ -28,6 +28,7 @@
   gap: 5px;
   flex-direction: column;
   padding: 20px 80px 20px 20px;
+  font-family: 'Fredoka One', cursive;
   border-radius: 10px;
   background-color: #000000;
   transition: .5s;

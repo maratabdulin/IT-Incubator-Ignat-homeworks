@@ -8,6 +8,7 @@ type AffairsPropsType = { // need to fix any
     data: Array<AffairType>
     setFilter: (filter: FilterType) => void
     deleteAffairCallback: (_id: number) => void
+    filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
@@ -19,44 +20,30 @@ function Affairs(props: AffairsPropsType) {
         />
     ))
 
-    // const setAll = () => {
-    //     props.setFilter('all')
-    // } // need to fix
-    // const setHigh = () => {
-    //     props.setFilter('high')
-    // }
-    // const setMiddle = () => {
-    //     props.setFilter('middle')
-    // }
-    // const setLow = () => {
-    //     props.setFilter('low')
-    // }
-
     const setFilter = (filterName: FilterType) => props.setFilter(filterName);
 
-    const styleHigh = {
-        backgroundColor: 'red',
-        color: 'black'
-    }
-    const styleMiddle = {
-        backgroundColor: 'yellow',
-        color: 'black'
-    }
-    const styleLow = {
-        backgroundColor: 'green',
-        color: 'black'
-    }
-
+    console.log(props.filter)
     return (
         <div>
             <div className={s.affairsList}>
                 {affairsList}
             </div>
             <div className={s.buttonList}>
-                <Button title={'All'} callback={() => setFilter('all')}/>
-                <Button title={'High'} callback={() => setFilter('high')} style={styleHigh}/>
-                <Button title={'Middle'} callback={() => setFilter('middle')} style={styleMiddle}/>
-                <Button title={'Low'} callback={() => setFilter('low')} style={styleLow}/>
+                <Button title={'All'}
+                        callback={() => setFilter('all')}
+                />
+                <Button title={'High'}
+                        callback={() => setFilter('high')}
+                        className={props.filter === 'high' && 'affairButtonHigh'}
+                />
+                <Button title={'Middle'}
+                        callback={() => setFilter('middle')}
+                        className={props.filter === 'middle' && 'affairButtonMiddle'}
+                />
+                <Button title={'Low'}
+                        callback={() => setFilter('low')}
+                        className={props.filter === 'low' && 'affairButtonLow'}
+                />
             </div>
         </div>
     )
