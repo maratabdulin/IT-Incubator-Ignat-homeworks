@@ -3,6 +3,7 @@ import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import s from './HW4.module.css'
 import SuperButton from './common/c2-SuperButton/SuperButton'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
+import Title from "../components/title/Title";
 
 function HW4() {
     const [text, setText] = useState<string>('')
@@ -21,8 +22,7 @@ function HW4() {
 
     return (
         <div>
-            <hr/>
-            homeworks 4
+            <Title text={'homeworks 4'} titleLevel={2}/>
 
             <div className={s.column}>
                 <SuperInputText
@@ -34,7 +34,7 @@ function HW4() {
                 />
 
                 <SuperInputText
-                    className={s.blue} // проверьте, рабоет ли смешивание классов
+                    className={s.blue}
                 />
 
                 {/*----------------------------------------------------*/}
@@ -54,6 +54,10 @@ function HW4() {
                     disabled
                 </SuperButton>
 
+                <SuperButton className={s.blueButton}>
+                    Blue button
+                </SuperButton>
+
                 {/*----------------------------------------------------*/}
 
                 <SuperCheckbox
@@ -67,12 +71,10 @@ function HW4() {
                 <SuperCheckbox checked={checked} onChange={testOnChange}/>
             </div>
 
-            <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeSuperInputText/>*/}
             {/*<AlternativeSuperButton/>*/}
             {/*<AlternativeSuperCheckbox/>*/}
-            <hr/>
         </div>
     )
 }

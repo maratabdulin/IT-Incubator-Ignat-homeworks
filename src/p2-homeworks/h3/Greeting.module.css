@@ -21,6 +21,7 @@
   color: #ff0099;
   border: 2px solid #ffffff;
   border-radius: 5px 0 0 5px;
+  outline: none;
   background-color: white;
   transition: .5s;
   text-align: center;
@@ -44,8 +45,6 @@
 
 .error {
   border: 2px solid red;
-  outline: solid 3px red;
-  outline-offset: -5px;
 }
 
 .errorMessage {

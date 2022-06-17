@@ -1,7 +1,39 @@
 .default {
+  padding: 10px 30px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff0099;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
+  filter: drop-shadow(0 0 15px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
+}
 
+.default:hover {
+  color: white;
+  background-color: #ff0099;
+  filter: drop-shadow(0 0 20px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
+}
+
+.default:disabled:hover, .default:disabled {
+  color: rgba(239, 239, 239, 0.7);
+  border: transparent;
+  background-color: rgba(239, 239, 239, 0.3);
+  filter: drop-shadow(0 0 15px #EFEFEF4C) drop-shadow(0 0 50px rgba(124, 123, 123, 0.3)) contrast(2) brightness(2);
 }
 
 .red {
-    background: red;
+  color: black;
+  border-color: transparent;
+  background: red;
+  filter: drop-shadow(0 0 15px red) drop-shadow(0 0 50px red) contrast(2) brightness(2);
+}
+
+.red:hover {
+  color: red;
+  border-color: red;
+  background-color: black;
+  filter: drop-shadow(0 0 15px red) drop-shadow(0 0 50px red) contrast(2) brightness(2);
 }

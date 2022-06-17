@@ -6,6 +6,7 @@ type ButtonPropsType = {
     callback: () => void
     style?: CSSProperties | undefined
     className?: false | string
+    disabled?: boolean
 }
 
 const Button:React.FC<ButtonPropsType> = (props) => {
@@ -15,6 +16,7 @@ const Button:React.FC<ButtonPropsType> = (props) => {
             className={`button ${props.className}`}
             onClick={props.callback}
             style={props.style}
+            disabled={props.disabled}
         >
             {props.title}
         </button>

@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react'
+import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 import Button from "../components/button/Button";
 
@@ -8,11 +8,12 @@ type GreetingPropsType = {
     addUser: (name: string) => void // need to fix any
     error: string // need to fix any
     totalUsers: number // need to fix any
+    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void
 }
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers} // деструктуризация пропсов
+    {name, setNameCallback, addUser, error, totalUsers, onEnter} // деструктуризация пропсов
 ) => {
     const inputClass = error ? s.error : s.noError  // need to fix with (?:)
 
@@ -24,8 +25,13 @@ const Greeting: React.FC<GreetingPropsType> = (
     return (
         <div className={s.greeting}>
             <div className={s.counter}>{totalUsers}</div>
-            <input value={name} onChange={setNameCallback} className={`${s.input} ${inputClass}`}/>
-            <Button title={'ADD'} callback={()=>addUser(name) } style={style}/>
+            <input
+                value={name}
+                onChange={setNameCallback}
+                className={`${s.input} ${inputClass}`}
+                onKeyDown={onEnter}
+            />
+            <Button title={'ADD'} callback={()=>addUser(name) } style={style} disabled={!name}/>
             <span className={s.errorMessage}>{error}</span>
         </div>
     )

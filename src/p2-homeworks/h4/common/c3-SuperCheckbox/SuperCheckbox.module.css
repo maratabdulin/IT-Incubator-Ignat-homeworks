@@ -1,7 +1,27 @@
 .checkbox {
-
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .spanClassName {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+}
 
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 30px;
+  padding: 10px;
+  color: #ff0099;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: .5s;
+  filter: drop-shadow(0 0 15px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
 }
