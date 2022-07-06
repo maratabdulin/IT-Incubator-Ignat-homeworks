@@ -1,20 +1,14 @@
 import React from 'react'
 import {NavLink} from "react-router-dom";
-import './Header.css';
-
-
-export const PATH = {
-    PRE_JUNIOR: '/pre-junior',
-    JUNIOR: '/junior',
-    PLUS_JUNIOR: '/plus-junior'
-}
+import s from './Header.module.css';
+import {PATH} from "./Pages";
 
 function Header() {
     return (
-        <div className='headerWrapper'>
-            <NavLink to={PATH.PRE_JUNIOR} className='headerTitle'>Pre Junior</NavLink>
-            <NavLink to={PATH.JUNIOR} className='headerTitle'>Junior</NavLink>
-            <NavLink to={PATH.PLUS_JUNIOR} className='headerTitle'>Pre Junior</NavLink>
+        <div className={s.headerWrapper}>
+            <NavLink to={PATH.PRE_JUNIOR} className={s.headerTitle}>Pre Junior</NavLink>
+            <NavLink to={PATH.JUNIOR} className={s.headerTitle}>Junior</NavLink>
+            <NavLink to={PATH.PLUS_JUNIOR} className={s.headerTitle}>Pre Junior</NavLink>
         </div>
     )
 }

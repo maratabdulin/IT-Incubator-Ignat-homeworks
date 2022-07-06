@@ -1,0 +1,60 @@
+.headerTitle {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  filter: drop-shadow(0 0 10px #ff0099) contrast(3) brightness(2);
+}
+
+.headerTitle:hover {
+  text-shadow: 0 0 2px #ffffff,
+  0 0 5px #ffffff,
+  0 0 32px #ff0099,
+  0 0 36px #ff0099,
+  0 0 40px #ff0099;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: start;
+  padding: 20px 50px;
+  transition-duration: 500ms;
+  transform: translate(-400px);
+}
+
+.headerWrapper:after {
+  width: fit-content;
+  height: 30px;
+  margin-left: 50px;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #ff0099;
+  border-radius: 5px;
+  background-color: #ffffff;
+  content: "chapters";
+  filter: drop-shadow(0 0 10px #ff0099) contrast(3) brightness(2);
+}
+
+.headerWrapper:after:hover {
+  color: white;
+  background-color: white;
+  text-shadow: 0 0 2px #ffffff,
+  0 0 5px #ffffff,
+  0 0 32px #ff0099,
+  0 0 36px #ff0099,
+  0 0 40px #ff0099;
+}
+
+
+.headerWrapper:Hover {
+  transition-duration: 500ms;
+  transform: translate(0);
+}
