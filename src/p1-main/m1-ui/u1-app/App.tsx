@@ -1,11 +1,13 @@
 import React from 'react'
 import s from './App.module.css'
-import HW5 from "../../../p2-homeworks/h5-rrd-v6/HW5";
+import Header from "../../../p2-homeworks/components/Header";
+import Pages from "../../../p2-homeworks/components/Pages";
 
 function App() {
     return (
         <div className={s.App}>
-            <HW5/>
+            <Header/>
+            <Pages/>
         </div>
     )
 }

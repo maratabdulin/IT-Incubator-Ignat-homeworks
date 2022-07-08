@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './Header'
-import Pages from './Pages'
+import Header from '../components/Header'
+import Pages from '../components/Pages'
 
 function HW5() {
     return (
