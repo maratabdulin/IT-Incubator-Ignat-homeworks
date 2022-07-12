@@ -1,6 +1,7 @@
 .radio {
   width: 30px;
   height: 30px;
+  outline: none;
 }
 
 .label {
