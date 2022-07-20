@@ -1,50 +1,50 @@
 import React, {useState} from 'react'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import moment from "moment";
+import style from './HW9.module.css'
 
 function Clock() {
     const [timerId, setTimerId] = useState<number>(0)
-    const [date, setDate] = useState<Date>()
+    const [date, setDate] = useState<any>(moment().format('k:mm:ss'))
     const [show, setShow] = useState<boolean>(false)
 
     const stop = () => {
-        // stop
+        window.clearTimeout(timerId);
     }
     const start = () => {
         stop()
         const id: number = window.setInterval(() => {
-            // setDate
+            setDate(moment().format('k:mm:ss'));
         }, 1000)
         setTimerId(id)
     }
 
-    const onMouseEnter = () => {
-        // show
+    const onMouseEnter = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        setShow(true)
     }
-    const onMouseLeave = () => {
-        // close
+    const onMouseLeave = (e: React.MouseEvent<HTMLSpanElement, MouseEvent> ) => {
+        setShow(false)// close
     }
 
-    const stringTime = 'Time' // fix with date
-    const stringDate = 'Date' // fix with date
+    const stringTime = date // fix with date
+    const stringDate = moment().format('MMMM Do YYYY') // fix with date
 
     return (
-        <div>
+        <div className={style.clockWrapper}>
             <div
+                className={style.clockTablo}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
                 {stringTime}
+                {show && (
+                    <div className={style.clockDate}>
+                        {stringDate}
+                    </div>
+                )}
             </div>
-
-            {show && (
-                <div>
-                    {stringDate}
-                </div>
-            )}
-
             <SuperButton onClick={start}>start</SuperButton>
             <SuperButton onClick={stop}>stop</SuperButton>
-
         </div>
     )
 }

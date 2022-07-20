@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  margin: 30px auto;
+  padding-bottom: 30px;
+}
+
+.clockWrapper {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  width: 30%;
+  margin: 20px auto 0;
+}
+
+.clockTablo {
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+  background-color: black;
+  transition: .5s;
+  filter: drop-shadow(0 0 15px #ff0099) drop-shadow(0 0 50px #ff0099) contrast(2) brightness(2);
+}
+
+.clockDate {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
