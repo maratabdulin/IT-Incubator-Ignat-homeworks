@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/IT-Incubator-Ignat-homeworks/static/css/main.7be857ba.css",
-    "main.js": "/IT-Incubator-Ignat-homeworks/static/js/main.9bc34095.js",
+    "main.css": "/IT-Incubator-Ignat-homeworks/static/css/main.07e657a0.css",
+    "main.js": "/IT-Incubator-Ignat-homeworks/static/js/main.2dcab453.js",
     "index.html": "/IT-Incubator-Ignat-homeworks/index.html",
-    "main.7be857ba.css.map": "/IT-Incubator-Ignat-homeworks/static/css/main.7be857ba.css.map",
-    "main.9bc34095.js.map": "/IT-Incubator-Ignat-homeworks/static/js/main.9bc34095.js.map"
+    "main.07e657a0.css.map": "/IT-Incubator-Ignat-homeworks/static/css/main.07e657a0.css.map",
+    "main.2dcab453.js.map": "/IT-Incubator-Ignat-homeworks/static/js/main.2dcab453.js.map"
   },
   "entrypoints": [
-    "static/css/main.7be857ba.css",
-    "static/js/main.9bc34095.js"
+    "static/css/main.07e657a0.css",
+    "static/js/main.2dcab453.js"
   ]
 }
