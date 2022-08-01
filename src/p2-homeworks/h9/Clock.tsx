@@ -9,11 +9,11 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const stop = () => {
-        window.clearTimeout(timerId);
+        clearInterval(timerId);
     }
     const start = () => {
         stop()
-        const id: number = window.setInterval(() => {
+        const id: number = +setInterval(() => {
             setDate(moment().format('k:mm:ss'));
         }, 1000)
         setTimerId(id)
@@ -26,8 +26,8 @@ function Clock() {
         setShow(false)// close
     }
 
-    const stringTime = date // fix with date
-    const stringDate = moment().format('MMMM Do YYYY') // fix with date
+    const stringTime = date || <br/>// fix with date
+    const stringDate = moment().format('MMMM Do YYYY') || <br/> // fix with date
 
     return (
         <div className={style.clockWrapper}>
