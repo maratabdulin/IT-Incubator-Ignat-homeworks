@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  height: 300px;
+  margin: 30px auto;
+  padding-bottom: 30px;
+}
+
+.loadingWrapper {
+  display: flex;
+  /*align-content: center;*/
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.buttonLoading {
+  align-self: center;
+  height: fit-content;
+}
+
+.loader {
+  transition: .5s;
+  filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #ffffff)  drop-shadow(0 0 50px #ffffff) contrast(2) brightness(2);
+}
