@@ -1,3 +1,5 @@
 .range {
-
+  width: 50%;
+  accent-color: #ff0099;
+  filter: drop-shadow(0 0 5px #ff0099) contrast(2) brightness(2);
 }
