@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react'
+import React, {ChangeEvent, useEffect, useState} from 'react'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import Title from '../components/title/Title';
@@ -8,8 +8,8 @@ function HW11() {
     const [value1, setValue1] = useState(0)
     const [value2, setValue2] = useState(100)
 
-    const superRangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue1(+e.currentTarget.value);
+    const superRangeHandler = (value: number) => {
+        setValue1(value);
     }
 
     const superRangeHandler2 = (valueMin: number, valueMax: number) => {
@@ -25,7 +25,7 @@ function HW11() {
             <div className={styles.rangeContainer}>
                 <span className={styles.rangeValues}>{value1}</span>
                 <SuperRange
-                    onChange={superRangeHandler}
+                    onChangeRange={superRangeHandler}
                     value={value1}
                 />
             </div>

@@ -12,9 +12,9 @@ const MultiRangeSlider:FC<RangePropsType> =({ onChange, valueMin }) => {
     let max = 100;
 
     const [minVal, setMinVal] = useState<number>(min);
-    const [maxVal, setMaxVal] = useState<number>(valueMin);
+    const [maxVal, setMaxVal] = useState<number>(max);
     const minValRef = useRef(min);
-    const maxValRef = useRef(valueMin);
+    const maxValRef = useRef(max);
     const range = useRef<HTMLInputElement>(null);
 
     // Convert to percentage
@@ -31,10 +31,10 @@ const MultiRangeSlider:FC<RangePropsType> =({ onChange, valueMin }) => {
         if (range.current) {
             range.current.style.left = `${minPercent}%`;
             range.current.style.width = `${maxPercent - minPercent}%`;
-            onChange(minVal, maxVal);
-        }
-    }, [minVal, getPercent]);
 
+        }
+
+    }, [minVal, getPercent]);
     // Set width of the range to decrease from the right side
     useEffect(() => {
         const minPercent = getPercent(minValRef.current);
@@ -42,9 +42,12 @@ const MultiRangeSlider:FC<RangePropsType> =({ onChange, valueMin }) => {
 
         if (range.current) {
             range.current.style.width = `${maxPercent - minPercent}%`;
-            onChange(minVal, maxVal);
         }
-    }, [valueMin, maxVal, getPercent]);
+    }, [maxVal, getPercent]);
+
+    useEffect(() => {
+        setMinVal(valueMin)
+    }, [valueMin]);
 
     return (
         <div className="container">
@@ -56,10 +59,10 @@ const MultiRangeSlider:FC<RangePropsType> =({ onChange, valueMin }) => {
                 onChange={(event) => {
                     const value = Math.min(Number(event.target.value), maxVal - 1);
                     setMinVal(value);
+                    onChange(minVal, maxVal);
                     minValRef.current = value;
                 }}
                 className="thumb thumb--left"
-                // style={{ zIndex: minVal > max - 100 && "5" }}
             />
             <input
                 type="range"
@@ -69,6 +72,7 @@ const MultiRangeSlider:FC<RangePropsType> =({ onChange, valueMin }) => {
                 onChange={(event) => {
                     const value = Math.max(Number(event.target.value), minVal + 1);
                     setMaxVal(value);
+                    onChange(minVal, maxVal);
                     maxValRef.current = value;
                 }}
                 className="thumb thumb--right"
