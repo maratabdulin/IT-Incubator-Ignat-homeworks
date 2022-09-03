@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react'
 import SuperRange from './common/c7-SuperRange/SuperRange'
-import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
+import {AlternativeSuperDoubleRange, OnChangeType} from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import Title from '../components/title/Title';
 import styles from './HW11.module.css';
 
@@ -12,9 +12,9 @@ function HW11() {
         setValue1(value);
     }
 
-    const superRangeHandler2 = (valueMin: number, valueMax: number) => {
-        setValue1(valueMin);
-        setValue2(valueMax);
+    const superRangeHandler2 = ({value1, value2}: OnChangeType) => {
+        setValue1(value1);
+        setValue2(value2);
     }
 
     return (
@@ -32,8 +32,11 @@ function HW11() {
 
             <div className={styles.rangeContainer}>
                 <span className={styles.rangeValues}>{value1}</span>
-                <SuperDoubleRange
-                    valueMin={value1}
+                <AlternativeSuperDoubleRange
+                    min={0}
+                    max={100}
+                    value1={value1}
+                    value2={value2}
                     onChange={superRangeHandler2}
                     // сделать так чтоб value1 и value2 изменялось
                 />
