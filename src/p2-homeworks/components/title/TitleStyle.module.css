@@ -5,14 +5,7 @@
   font-size: 40px;
   font-weight: 700;
   line-height: 1;
-  color: #ffffff;
-  text-shadow: 0 0 2px #ffffff,
-  0 0 5px #ffffff,
-  0 0 32px #ff0099,
-  0 0 36px #ff0099,
-  0 0 40px #ff0099;
   text-align: center;
-  filter: drop-shadow(0 0 10px #ff0099) contrast(3) brightness(2);
 }
 
 .title::after {
@@ -21,6 +14,20 @@
   bottom: -15px;
   left: 50px;
   height: 1px;
+  content: "";
+}
+
+.neon {
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff,
+  0 0 5px #ffffff,
+  0 0 32px #ff0099,
+  0 0 36px #ff0099,
+  0 0 40px #ff0099;
+  filter: drop-shadow(0 0 10px #ff0099) contrast(3) brightness(2);
+}
+
+.neon:after {
   background-color: #ffffff;
   box-shadow: 0 0 2px #ffffff,
   0 0 5px #ffffff,
@@ -29,6 +36,49 @@
   0 0 32px #ff0099,
   0 0 36px #ff0099,
   0 0 40px #ff0099;
-  content: "";
   filter: drop-shadow(0 0 5px #ff0099) contrast(3) brightness(2);
+}
+
+.dark {
+  color: #22b455;
+  text-shadow: 0 0 2px #22b455,
+  0 0 5px #22b455,
+  0 0 32px #020204,
+  0 0 36px #020204,
+  0 0 40px #020204;
+  filter: drop-shadow(0 0 10px #020204) contrast(3) brightness(2);
+}
+
+.dark:after {
+  background-color: #22b455;
+  box-shadow: 0 0 2px #22b455,
+  0 0 5px #22b455,
+  0 0 15px #020204,
+  0 0 28px #020204,
+  0 0 32px #020204,
+  0 0 36px #020204,
+  0 0 40px #020204;
+  filter: drop-shadow(0 0 5px #020204) contrast(3) brightness(2);
+}
+
+.light {
+  color: #026077;
+  text-shadow: 0 0 2px #026077,
+  0 0 5px #026077,
+  0 0 32px #35b4ec,
+  0 0 36px #35b4ec,
+  0 0 40px #35b4ec;
+  filter: drop-shadow(0 0 10px #35b4ec) contrast(3) brightness(2);
+}
+
+.light:after {
+  background-color: #026077;
+  box-shadow: 0 0 2px #026077,
+  0 0 5px #026077,
+  0 0 15px #35b4ec,
+  0 0 28px #35b4ec,
+  0 0 32px #35b4ec,
+  0 0 36px #35b4ec,
+  0 0 40px #35b4ec;
+  filter: drop-shadow(0 0 5px #35b4ec) contrast(3) brightness(2);
 }

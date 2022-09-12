@@ -1,3 +1,11 @@
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 50px;
+}
+
 .headerTitle {
   font-family: "Fredoka One", cursive;
   font-size: 20px;
@@ -17,20 +25,20 @@
   0 0 40px #ff0099;
 }
 
-.headerWrapper {
+.navLinkWrapper {
   display: flex;
   align-items: center;
   gap: 30px;
   justify-content: start;
   padding: 20px 50px;
   transition-duration: 500ms;
-  transform: translate(-400px);
+  transform: translate(-420px);
 }
 
-.headerWrapper:after {
+.navLinkWrapper:after {
   width: fit-content;
   height: 30px;
-  margin-left: 50px;
+  margin-left: 20px;
   padding: 10px;
   font-family: "Fredoka One", cursive;
   font-size: 20px;
@@ -43,7 +51,7 @@
   filter: drop-shadow(0 0 10px #ff0099) contrast(3) brightness(2);
 }
 
-.headerWrapper:after:hover {
+.navLinkWrapper:after:hover {
   color: white;
   background-color: white;
   text-shadow: 0 0 2px #ffffff,
@@ -54,7 +62,11 @@
 }
 
 
-.headerWrapper:Hover {
+.navLinkWrapper:Hover {
   transition-duration: 500ms;
   transform: translate(0);
+}
+
+.themeSelect {
+  height: 50px;
 }

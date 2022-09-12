@@ -1,4 +1,19 @@
-.dark {
+.container {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin: 30px auto;
+    padding-bottom: 30px;
+}
+
+.themesContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.neon {
     background: dimgrey;
 }
 
