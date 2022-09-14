@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
+
 import React, {useState} from 'react'
 import Affairs from './Affairs'
-import s from './Affairs.module.css'
 import Title from "../components/title/Title";
+import sectionWrapper from '../assets/styles/sectionWrapper';
 
 // types
 export type AffairPriorityType = 'high' | 'low' | 'middle' // need to fix any
@@ -32,7 +34,7 @@ export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<Aff
     return affairs.filter((a)=> _id !== a._id);
 }
 
-function HW2() {
+const HW2 = () => {
     const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
@@ -40,21 +42,16 @@ function HW2() {
     const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id)) // need to fix any
 
     return (
-        <div className={s.wrapper}>
+        <div css={sectionWrapper}>
             <Title text={'homework 2'} titleLevel={2}/>
-
-            {/*should work (должно работать)*/}
             <Affairs
                 data={filteredAffairs}
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
                 filter={filter}
             />
-
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeAffairs/>*/}
         </div>
     )
-}
+};
 
 export default HW2

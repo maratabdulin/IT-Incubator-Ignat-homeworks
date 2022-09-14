@@ -1,41 +1,91 @@
-import React, {CSSProperties, useState} from 'react'
-import {AffairType} from "./HW2";
-import s from './Affairs.module.css'
+/** @jsxImportSource @emotion/react */
+
+import React from 'react'
+import {AffairType} from './HW2';
+import {css} from '@emotion/react';
+import {useSelector} from 'react-redux';
+import {AppStoreType} from '../h10/bll/store';
+import {ThemeTypes} from '../h10/bll/setThemeReducer';
+import colors from '../assets/styles/colors';
+import {affairsColorOption} from './Affairs';
 
 type AffairPropsType = {
     // key не нужно типизировать
-    affair: AffairType // need to fix any
-    deleteAffairCallback: (_id: number) => void // need to fix any
+    affair: AffairType
+    deleteAffairCallback: (_id: number) => void
 }
+
+// emotion static style
+const affairItem = css`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  padding: 10px 10px 10px 20px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  line-height: 30px;
+  border-radius: 5px;
+`;
+const buttonDelete = css`
+  justify-self: right;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: none;
+`;
+const itemPriority = css`
+  justify-self: center;
+`;
+
 
 function Affair(props: AffairPropsType) {
 
-    const [style, setStyle] = useState<CSSProperties | undefined>(undefined);
+    const themeFromState = useSelector<AppStoreType, ThemeTypes>(state => state.theme.theme);
 
     const deleteCallback = () => {
         props.deleteAffairCallback(props.affair._id);
-    }// need to fix
+    }
 
-    const buttonDeleteOverHandler =
-        () => setStyle({color: 'white', backgroundColor: 'black'});
-    const buttonDeleteLeaveHandler =
-        () => setStyle({color: 'black', backgroundColor: 'white'});
+    // emotion dynamic styles
+    const affairItemTheme = css`
+      color: ${colors[themeFromState].secondary};
+      background-color: ${colors[themeFromState].bubbleBackground};
+      filter: drop-shadow(0 0 5px ${colors[themeFromState].main}) contrast(2) brightness(2);
+    `
+    const buttonDeleteTheme = css`
+      color: ${colors[themeFromState].bubbleBackground};
+      background-color: ${colors[themeFromState].secondary};
+      border: 2px solid ${colors[themeFromState].secondary};
+
+      &:hover {
+        color: ${colors[themeFromState].secondary};
+        background-color: ${colors[themeFromState].bubbleBackground};
+      }
+    `
+    let affairItemFilter = css``;
+    if (props.affair.priority) {
+        affairItemFilter = css`
+          &:hover {
+            font-weight: 700;
+            color: black;
+            filter: drop-shadow(0 0 20px ${affairsColorOption[props.affair.priority].color}) contrast(2) brightness(2);
+            background-color: ${affairsColorOption[props.affair.priority].color};
+          }
+        `
+    }
 
     return (
-        <div className={`
-        ${s.affairItem}
-        ${props.affair.priority === 'high' ? s.high : null} 
-        ${props.affair.priority === 'middle' ? s.middle : null} 
-        ${props.affair.priority === 'low' ? s.low : null} 
-        `}>
-            <div className={s.itemName}>{props.affair.name.toUpperCase()}</div>
-            <div className={s.itemPriority}>{props.affair.priority}</div>
-            <button className={s.buttonDelete}
-                    onClick={deleteCallback}
-                    onMouseOver={buttonDeleteOverHandler}
-                    onMouseLeave={buttonDeleteLeaveHandler}
-                    style={style}
-            >X</button>
+        <div css={[affairItem, affairItemTheme, affairItemFilter]}>
+            <div>{props.affair.name.toUpperCase()}</div>
+            <div css={itemPriority}>{props.affair.priority}</div>
+            <button
+                css={[buttonDelete, buttonDeleteTheme]}
+                onClick={deleteCallback}
+            >X
+            </button>
         </div>
     )
 }

@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
+
 import React from 'react'
 import Message from "./Message";
-import s from "./Message.module.css";
 import Title from "../components/title/Title";
+import sectionWrapper from '../assets/styles/sectionWrapper';
 
 const messageData = {
     avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
@@ -12,20 +14,14 @@ const messageData = {
 
 function HW1() {
     return (
-        <div className={s.wrapper}>
+        <div css={sectionWrapper}>
             <Title text={'homework 1'} titleLevel={2}/>
-
-            {/*should work (должно работать)*/}
-
             <Message
                 avatar={messageData.avatar}
                 name={messageData.name}
                 message={messageData.message}
                 time={messageData.time}
             />
-
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeMessage/>*/}
         </div>
     )
 }

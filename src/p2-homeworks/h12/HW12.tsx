@@ -6,7 +6,7 @@ import Title from '../components/title/Title';
 import SuperRadio from '../h7/common/c6-SuperRadio/SuperRadio';
 import {setThemeAC, setThemeReducer, ThemeTypes} from '../h10/bll/setThemeReducer';
 
-const arr:Array<ThemeTypes> = ['neon', 'dark', 'light']
+export const arr:Array<ThemeTypes> = ['neon', 'dark', 'light']
 
 function HW12() {
     const theme = useSelector<AppStoreType, string>(state => state.theme.theme)
