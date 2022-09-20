@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import React from 'react'
 import Clock from './Clock'
 import Title from "../components/title/Title";

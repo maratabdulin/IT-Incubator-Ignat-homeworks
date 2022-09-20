@@ -2,8 +2,6 @@
 
 import React from 'react'
 import {css} from '@emotion/react';
-import {useSelector} from 'react-redux';
-import {AppStoreType} from '../h10/bll/store';
 import {ThemeTypes} from '../h10/bll/setThemeReducer';
 import colors from '../assets/styles/colors';
 
@@ -12,6 +10,7 @@ type MessageType = {
     name: string
     message: string
     time: string
+    theme: ThemeTypes
 }
 
 // emotion static style
@@ -69,26 +68,25 @@ const time = css`
 
 const Message: React.FC<MessageType> = (props) => {
 
-    const themeFromState = useSelector<AppStoreType, ThemeTypes>(state => state.theme.theme);
 
     // emotion dynamic style
     const imageTheme = css`
-      background-color: ${colors[themeFromState].secondary};
-      box-shadow: 0 0 20px ${colors[themeFromState].main};
+      background-color: ${colors[props.theme].secondary};
+      box-shadow: 0 0 20px ${colors[props.theme].main};
     `;
     const bubbleTheme = css`
-      background-color: ${colors[themeFromState].bubbleBackground};
-      filter: drop-shadow(0 0 20px ${colors[themeFromState].secondary}) contrast(2) brightness(2);
+      background-color: ${colors[props.theme].bubbleBackground};
+      filter: drop-shadow(0 0 20px ${colors[props.theme].secondary}) contrast(2) brightness(2);
       &:after {
-        background: radial-gradient(circle at top left, transparent 50%, ${colors[themeFromState].bubbleBackground} 50%);
-        filter: drop-shadow(0 0 20px ${colors[themeFromState].main}) contrast(2) brightness(2);
+        background: radial-gradient(circle at top left, transparent 50%, ${colors[props.theme].bubbleBackground} 50%);
+        filter: drop-shadow(0 0 20px ${colors[props.theme].main}) contrast(2) brightness(2);
       }
     `;
     const textAndTimeTheme = css`
-        color: ${colors[themeFromState].secondary};
+        color: ${colors[props.theme].secondary};
     `;
     const nameTheme = css`
-      color: ${colors[themeFromState].main};
+      color: ${colors[props.theme].main};
     `
 
     return (

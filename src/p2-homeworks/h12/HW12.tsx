@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import React from "react";
 import s from "./HW12.module.css";
 import {useDispatch, useSelector} from 'react-redux';

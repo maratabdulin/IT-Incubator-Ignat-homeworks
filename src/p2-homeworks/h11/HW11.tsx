@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import React, {ChangeEvent, useEffect, useState} from 'react'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 import {AlternativeSuperDoubleRange, OnChangeType} from './common/c8-SuperDoubleRange/SuperDoubleRange'

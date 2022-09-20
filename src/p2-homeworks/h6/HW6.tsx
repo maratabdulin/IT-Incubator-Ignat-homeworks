@@ -1,11 +1,24 @@
+/** @jsxImportSource @emotion/react */
+
 import React, {useState} from 'react'
 import SuperEditableSpan from './common/c4-SuperEditableSpan/SuperEditableSpan'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {restoreState, saveState} from './localStorage/localStorage'
 import Title from "../components/title/Title";
-import s from './HW6.module.css'
+import sectionWrapper from '../assets/styles/sectionWrapper';
+import {css} from '@emotion/react';
 
-function HW6() {
+const inputsWrapper = css`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding: 30px;
+`;
+
+
+const HW6 = () => {
     const [value, setValue] = useState<string>('')
 
     const save = () => {
@@ -17,12 +30,12 @@ function HW6() {
     }
 
     return (
-        <div>
+        <div css={sectionWrapper}>
             <Title text={'homeworks 6'} titleLevel={2}/>
 
             {/*should work (должно работать)*/}
 
-            <div className={s.wrapper}>
+            <div css={inputsWrapper}>
                 <SuperEditableSpan
                     value={value}
                     onChangeText={setValue}
@@ -37,6 +50,6 @@ function HW6() {
             {/*<AlternativeSuperEditableSpan/>*/}
         </div>
     )
-}
+};
 
 export default HW6

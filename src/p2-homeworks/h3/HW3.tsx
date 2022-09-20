@@ -1,38 +1,35 @@
+/** @jsxImportSource @emotion/react */
+
 import React, {useState} from 'react'
 import GreetingContainer from './GreetingContainer'
 import {v1} from "uuid";
-import s from './Greeting.module.css'
 import Title from "../components/title/Title";
+import sectionWrapper from '../assets/styles/sectionWrapper';
 
 // types
 export type UserType = {
-    _id: string // need to fix any
-    name: string // need to fix any
+    _id: string
+    name: string
 }
 
 // уровень работы с глобальными данными
-function HW3() {
-    const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any
+const HW3 = () => {
+    const [users, setUsers] = useState<Array<UserType>>([])
 
-    const addUserCallback = (name: string) => { // need to fix any
+    const addUserCallback = (name: string) => {
         const newUser = {name: name, _id: v1()};
-        setUsers([...users, newUser]) // need to fix
+        setUsers([...users, newUser])
     }
 
     return (
-        <div className={s.wrapper}>
+        <div css={sectionWrapper}>
             <Title text={'homework 3'} titleLevel={2}/>
-
-            {/*should work (должно работать)*/}
             <GreetingContainer
                 users={users}
                 addUserCallback={addUserCallback}
             />
-
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeGreeting/>*/}
         </div>
     )
-}
+};
 
 export default HW3

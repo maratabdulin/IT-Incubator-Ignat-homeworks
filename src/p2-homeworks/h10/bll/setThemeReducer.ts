@@ -1,4 +1,4 @@
-export type ThemeTypes = 'neon' | 'dark' | 'light'
+export type ThemeTypes = 'neon' | 'dark' | 'light' | 'red'
 
 const initState = {
     theme: 'neon'

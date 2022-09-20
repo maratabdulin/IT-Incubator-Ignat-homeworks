@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
-import React, {CSSProperties} from 'react';
-import './ButtonStyle.css'
+import React from 'react';
 import {useSelector} from 'react-redux';
 import {AppStoreType} from '../../h10/bll/store';
 import {ThemeTypes} from '../../h10/bll/setThemeReducer';
-import {css} from '@emotion/react';
+import {css, SerializedStyles} from '@emotion/react';
 import colors from '../../assets/styles/colors';
 import {FilterType} from '../../h2/HW2';
 import {affairsColorOption} from '../../h2/Affairs';
@@ -15,7 +14,7 @@ type ButtonPropsType = {
     title: string
     callback: () => void
     filter?: FilterType
-    style?: CSSProperties
+    className?: SerializedStyles
 }
 
 // emotion static style
@@ -29,7 +28,7 @@ const button = css`
   transition: .5s;
 `;
 
-const Button: React.FC<ButtonPropsType> = ({disabled = false, filter = 'all', title, callback}) => {
+const Button: React.FC<ButtonPropsType> = ({disabled = false, filter = 'all', title, callback, className}) => {
 
     const themeFromState = useSelector<AppStoreType, ThemeTypes>(state => state.theme.theme);
 
@@ -38,11 +37,13 @@ const Button: React.FC<ButtonPropsType> = ({disabled = false, filter = 'all', ti
       color: ${colors[themeFromState].main};
       border: 2px solid ${colors[themeFromState].secondary};
       background-color: ${colors[themeFromState].secondary};
+      filter: drop-shadow(0 0 10px ${colors[themeFromState].buttonBackground}) drop-shadow(0 0 30px ${colors[themeFromState].buttonBackground}) contrast(2) brightness(2);
 
       &:hover {
         color: ${colors[themeFromState].secondary};
         background-color: ${colors[themeFromState].main};
-        filter: drop-shadow(0 0 5px ${colors[themeFromState].main}) contrast(2) brightness(2);
+        filter: drop-shadow(0 0 15px ${colors[themeFromState].buttonBackground}) drop-shadow(0 0 50px ${colors[themeFromState].buttonBackground}) contrast(2) brightness(2);
+
       }
     `
     let buttonFilterTheme = css``;
@@ -58,9 +59,10 @@ const Button: React.FC<ButtonPropsType> = ({disabled = false, filter = 'all', ti
         `
     }
 
+
     return (
         <button
-            css={[button, buttonTheme, buttonFilterTheme]}
+            css={[button, buttonTheme, buttonFilterTheme, className]}
             onClick={callback}
             disabled={disabled}
         >

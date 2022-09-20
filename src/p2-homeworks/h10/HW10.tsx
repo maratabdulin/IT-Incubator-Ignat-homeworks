@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import React from 'react'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import Title from '../components/title/Title';
@@ -33,7 +35,9 @@ function HW10() {
                     </div>
                 ) : (
                     <div className={styles.loadingWrapper}>
-                        <SuperButton onClick={setLoading} className={styles.buttonLoading}>set loading...</SuperButton>
+                        <SuperButton onClick={setLoading}
+                                     // className={styles.buttonLoading}
+                        >set loading...</SuperButton>
                     </div>
                 )
             }

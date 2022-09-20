@@ -1,18 +1,18 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
 import {UserType} from "./HW3";
+import {useSelector} from 'react-redux';
+import {AppStoreType} from '../h10/bll/store';
+import {ThemeTypes} from '../h10/bll/setThemeReducer';
 
 type GreetingContainerPropsType = {
     users: Array<UserType> // need to fix any
     addUserCallback: (name: string) => void // need to fix any
 }
 
-// более простой и понятный для новичков
-// function GreetingContainer(props: GreetingPropsType) {
-
-// более современный и удобный для про :)
-// уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
+
+    const themeFromState = useSelector<AppStoreType, ThemeTypes>(state => state.theme.theme);
     const [name, setName] = useState<string>('') // need to fix any
     const [error, setError] = useState<string>('') // need to fix any
 
@@ -50,6 +50,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             error={error}
             totalUsers={totalUsers}
             onEnter={onEnter}
+            theme={themeFromState}
         />
     )
 }
