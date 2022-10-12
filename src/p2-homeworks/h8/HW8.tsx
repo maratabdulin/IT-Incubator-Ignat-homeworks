@@ -55,7 +55,7 @@ const userWrapper = css`
   transition: .5s;
 `
 
-function HW8() {
+const HW8 = () => {
     const [people, setPeople] = useState<Array<UserType>>(initialPeople) // need to fix any
 
     let themeFromState = useSelector<AppStoreType, ThemeTypes>(state => state.theme.theme);
@@ -95,6 +95,6 @@ function HW8() {
 
         </div>
     )
-}
+};
 
 export default HW8

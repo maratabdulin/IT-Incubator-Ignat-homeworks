@@ -27,7 +27,7 @@ const navLinkWrapper = css`
   justify-content: start;
   padding: 20px 50px;
   transition-duration: 500ms;
-  transform: translate(-420px);
+  transform: translate(-430px);
 
   &:after {
     width: fit-content;
@@ -98,7 +98,7 @@ const Header = () => {
             <div css={[navLinkWrapper, navLinkWrapperTheme]}>
                 <NavLink to={PATH.PRE_JUNIOR} css={[headerTitle, headerTitleTheme]}>Pre Junior</NavLink>
                 <NavLink to={PATH.JUNIOR} css={[headerTitle, headerTitleTheme]}>Junior</NavLink>
-                <NavLink to={PATH.PLUS_JUNIOR} css={[headerTitle, headerTitleTheme]}>Pre Junior</NavLink>
+                <NavLink to={PATH.PLUS_JUNIOR} css={[headerTitle, headerTitleTheme]}>Junior Plus</NavLink>
             </div>
             <SuperSelect
                 css={select}
