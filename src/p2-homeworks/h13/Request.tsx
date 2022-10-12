@@ -20,8 +20,9 @@ const Request = () => {
         requestAPI.changeSuccess(checked)
             .then((res) => {
                 setChecked(res.data.yourBody.success)
-            }).catch((err: any) => {
-            alert(err)
+            }).catch((err) => {
+            console.log({...err});
+            console.log(err.response ? err.response.data.errorText : err.message);
         })
     };
 
